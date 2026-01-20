@@ -1,0 +1,14 @@
+name: Docker CI
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v3
+    - name: Construir imagen Docker
+      run: docker build . -t mi-app-python:latest
+    - name: Listar imágenes
+      run: docker images
